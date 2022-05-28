@@ -14,8 +14,10 @@ public class FilterDemo01 implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         System.out.println("FilterDem01 被执行了");
+        servletRequest.setCharacterEncoding("utf-8");
         //放行
         filterChain.doFilter(servletRequest,servletResponse);
+        servletResponse.setContentType("text/html;charset=utf-8");
     }
 
     @Override
